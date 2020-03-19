@@ -1,0 +1,27 @@
+.brushSliderContainer {
+    width: 100%;
+
+}
+
+.sliderContainer {
+    width: 90%;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.colorItem{
+    width:50px;
+    height: 50px;
+    padding: 0 5px;
+}
+
+.colorsContainer {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+
+.sampleBrush {
+    display: inline-block;
+    border-radius: 15px;
+}
