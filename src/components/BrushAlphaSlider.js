@@ -24,6 +24,7 @@ const BrushAlphaSlider = ({ currentAlpha, dispatch }) => {
                     minValue={1}
                     value={alpha}
                     onChange={onChangeComplete}
+                    formatLabel={value => ''}
                 />
             </div>
             <SampleBrush/>

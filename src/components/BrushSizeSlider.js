@@ -24,6 +24,7 @@ const BrushSizeSlider = ({ currentSize, dispatch }) => {
                     minValue={1}
                     value={size}
                     onChange={onChangeComplete}
+                    formatLabel={value => ''}
                 />
             </div>
             <SampleBrushSize/>

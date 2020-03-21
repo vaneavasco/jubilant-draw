@@ -3,12 +3,21 @@ import { connect } from 'react-redux';
 
 import './style.css';
 import { beginResetCanvas } from '../redux/actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRedo } from '@fortawesome/free-solid-svg-icons';
 
 const ResetCanvas = ({ dispatch, color = '#ff5050' }) => {
     const onClick = () => dispatch(beginResetCanvas());
 
     return (
-        <button className={'colorItem'} style={{ backgroundColor: color }} onClick={onClick}>X</button>
+        <FontAwesomeIcon
+            icon={faRedo}
+            color={color}
+            onClick={onClick}
+            size='lg'
+            fixedWidth
+            className={'colorItem'}
+        />
     );
 };
 

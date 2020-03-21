@@ -1,28 +1,56 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CanvasDraw from 'react-canvas-draw';
 import { connect } from 'react-redux';
 
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { finishResetCanvas } from '../redux/actions';
 
+import './style.css';
+
 const Canvas = ({ color, brushAlpha, brushSize, resetCanvas, dispatch }) => {
-    const { height, width } = useWindowDimensions();
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const containerRef = useRef(null);
     let ref = useRef(null);
+    const { width, height } = useWindowDimensions();
+
+    useEffect(() => {
+        if (containerRef.current) {
+            setDimensions({
+                height: containerRef.current.clientHeight,
+                width: containerRef.current.clientWidth,
+            });
+            ref.current.drawImage();
+        } else {
+            setDimensions({
+                height,
+                width,
+            })
+        }
+    }, [dimensions.width]);
+
+    //const { height, width } = useWindowDimensions();
+
 
     if (resetCanvas) {
         ref.current.clear();
         dispatch(finishResetCanvas());
     }
 
+    const adjustedHeight = dimensions.height ? dimensions.height - 10 : 0;
+    const adjustedWidth = dimensions.width ? dimensions.width - 20 : 0;
+
     return (
-        <CanvasDraw
-            ref={ref}
-            canvasHeight={height - 120}
-            canvasWidth={width}
-            brushColor={`${color}${brushAlpha}`}
-            brushRadius={brushSize * 5}
-            hideGrid={true}
-        />
+        <div className={'canvasContainer'} ref={containerRef}>
+                <CanvasDraw
+                    ref={ref}
+                    canvasHeight={adjustedHeight}
+                    canvasWidth={adjustedWidth}
+                    brushColor={`${color}${brushAlpha}`}
+                    brushRadius={brushSize * 3}
+                    hideGrid={true}
+                    lazyRadius={0}
+                />
+        </div>
     );
 };
 

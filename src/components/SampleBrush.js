@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 
 const SampleBrush = ({ color = '#ff5050', size = 30, brushAlpha }) => {
     return (
-        <span className={'sampleBrush'} style={{ backgroundColor: `${color}${brushAlpha}`, width: size, height: size }}>
+        <div className={'sampleBrushContainer'}>
+            <span
+                className={'sampleBrush'}
+                style={{ backgroundColor: `${color}${brushAlpha}`, width: size, height: size }}>
 
-        </span>
+            </span>
+        </div>
     );
 };
 

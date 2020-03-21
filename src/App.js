@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 //import './App.css';
+import './components/style.css';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -10,6 +11,7 @@ import Canvas from './components/Canvas';
 import BrushSizeSlider from './components/BrushSizeSlider';
 import BrushAlphaSlider from './components/BrushAlphaSlider';
 import ColorPallet from './components/ColorPalette';
+import controls from './redux/reducers/controls';
 
 const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
@@ -33,10 +35,15 @@ function App() {
             {/*  </a>*/}
             {/*</header>*/}
             <Provider store={store}>
-                <Canvas></Canvas>
-                <BrushSizeSlider/>
-                <BrushAlphaSlider/>
-                <ColorPallet/>
+                <div className={'appContainer'}>
+                    <Canvas></Canvas>
+                    <div className={'controlsContainer'}>
+                        <BrushSizeSlider/>
+                        <BrushAlphaSlider/>
+                        <ColorPallet/>
+                    </div>
+
+                </div>
             </Provider>
         </div>
     );
