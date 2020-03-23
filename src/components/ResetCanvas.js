@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import './style.css';
 import { beginResetCanvas } from '../redux/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
-const ResetCanvas = ({ dispatch, color = '#ff5050' }) => {
+const ResetCanvas = ({ dispatch, color = '#FF0C00' }) => {
     const onClick = () => dispatch(beginResetCanvas());
 
     return (
         <FontAwesomeIcon
-            icon={faRedo}
+            icon={faEraser}
             color={color}
             onClick={onClick}
             size='lg'

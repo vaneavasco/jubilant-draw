@@ -7,8 +7,8 @@ import { finishResetCanvas } from '../redux/actions';
 
 import './style.css';
 
-const Canvas = ({ color, brushAlpha, brushSize, resetCanvas, dispatch }) => {
-    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+const Canvas = ({ color, brushAlpha, brushSize, resetCanvas, image, dispatch }) => {
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0, image });
     const containerRef = useRef(null);
     let ref = useRef(null);
     const { width, height } = useWindowDimensions();
@@ -26,7 +26,7 @@ const Canvas = ({ color, brushAlpha, brushSize, resetCanvas, dispatch }) => {
                 width,
             })
         }
-    }, [dimensions.width]);
+    }, [width, height, image]);
 
     //const { height, width } = useWindowDimensions();
 
@@ -49,15 +49,16 @@ const Canvas = ({ color, brushAlpha, brushSize, resetCanvas, dispatch }) => {
                     brushRadius={brushSize * 3}
                     hideGrid={true}
                     lazyRadius={0}
+                    imgSrc={image}
                 />
         </div>
     );
 };
 
 const mapStateToProps = (state) => {
-    const { controls: { color, brushAlpha, brushSize, resetCanvas } } = state;
+    const { controls: { color, brushAlpha, brushSize, resetCanvas, image } } = state;
     const hexBrushAlpha = Math.round(brushAlpha * 255 / 10).toString(16);
-    return { color, brushAlpha: hexBrushAlpha, brushSize, resetCanvas };
+    return { color, brushAlpha: hexBrushAlpha, brushSize, resetCanvas, image };
 };
 
 export default connect(mapStateToProps)(Canvas);

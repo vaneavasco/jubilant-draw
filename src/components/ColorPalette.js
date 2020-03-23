@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Color from './Color';
 import ResetCanvas from './ResetCanvas';
+import SettingsButton from './buttons/SettingsButton';
 
 const colors = [
     '#ffffff',
@@ -18,10 +19,11 @@ const colors = [
 const ColorPalette = () => {
     return (
         <div className={'colorsContainer'}>
+            <SettingsButton/>
+            <ResetCanvas />
             {
                 colors.map(color => <Color color={color}/>)
             }
-            <ResetCanvas />
         </div>
     );
 };

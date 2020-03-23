@@ -1,4 +1,11 @@
-import { SET_BRUSH_ALPHA, SET_BRUSH_SIZE, SET_COLOR, BEGIN_RESET_CANVAS, FINISH_RESET_CANVAS } from '../constants/controls';
+import {
+    SET_BRUSH_ALPHA,
+    SET_BRUSH_SIZE,
+    SET_COLOR,
+    BEGIN_RESET_CANVAS,
+    FINISH_RESET_CANVAS,
+    SET_SETTINGS_PANEL, SETTINGS_PANEL_BRUSH, SET_IMAGES_PANEL, SETTINGS_PANEL_IMAGES, SET_IMAGE,
+} from '../constants/controls';
 
 export const setBrushSize = brushSize => ({
     type: SET_BRUSH_SIZE,
@@ -21,4 +28,19 @@ export const beginResetCanvas = alpha => ({
 
 export const finishResetCanvas = alpha => ({
     type: FINISH_RESET_CANVAS,
+});
+
+export const displayBrushPanel = () => ({
+    type: SET_SETTINGS_PANEL,
+    payload: SETTINGS_PANEL_BRUSH,
+});
+
+export const displayImagesPanel = () => ({
+    type: SET_IMAGES_PANEL,
+    payload: SETTINGS_PANEL_IMAGES,
+});
+
+export const setImage = image => ({
+    type: SET_IMAGE,
+    payload: image,
 });

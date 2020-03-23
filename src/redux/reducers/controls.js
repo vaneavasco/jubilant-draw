@@ -4,6 +4,10 @@ import {
     SET_COLOR,
     BEGIN_RESET_CANVAS,
     FINISH_RESET_CANVAS,
+    SETTINGS_PANEL_BRUSH,
+    SETTINGS_PANEL_IMAGES,
+    SET_IMAGE,
+    SET_SETTINGS_PANEL,
 } from '../constants/controls';
 
 const defaultState = {
@@ -11,6 +15,8 @@ const defaultState = {
     brushSize: 5,
     brushAlpha: 5,
     resetCanvas: false,
+    image: '',
+    settingsPanel: SETTINGS_PANEL_IMAGES,
 };
 
 const controls = (state = defaultState, action) => {
@@ -43,6 +49,20 @@ const controls = (state = defaultState, action) => {
                 ...state,
                 resetCanvas: false,
             };
+
+        case SET_IMAGE: {
+            return {
+                ...state,
+                image: action.payload,
+            };
+        }
+
+        case SET_SETTINGS_PANEL: {
+            return {
+                ...state,
+                settingsPanel: action.payload,
+            };
+        }
 
         default:
             return state;

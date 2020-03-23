@@ -13,7 +13,7 @@
     "cra-template": "1.0.2",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
-    "react-canvas-draw": "^1.1.0",
+    "react-canvas-draw": "github:vaneavasco/react-canvas-draw",
     "react-dom": "^16.13.0",
     "react-input-range": "^1.3.0",
     "react-redux": "^7.2.0",

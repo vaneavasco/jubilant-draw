@@ -12,6 +12,7 @@ import BrushSizeSlider from './components/BrushSizeSlider';
 import BrushAlphaSlider from './components/BrushAlphaSlider';
 import ColorPallet from './components/ColorPalette';
 import controls from './redux/reducers/controls';
+import SettingsPanel from './components/SettingsPanel';
 
 const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
@@ -38,8 +39,7 @@ function App() {
                 <div className={'appContainer'}>
                     <Canvas></Canvas>
                     <div className={'controlsContainer'}>
-                        <BrushSizeSlider/>
-                        <BrushAlphaSlider/>
+                        <SettingsPanel/>
                         <ColorPallet/>
                     </div>
 
